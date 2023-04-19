@@ -1,0 +1,100 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ae8b6016-1882-4a4b-a365-a48e055060e2</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>Main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>ImageGroupingApp</Name>
+    <RootNamespace>PythonApplication2</RootNamespace>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IMenuController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainController.py" />
+    <Compile Include="model\testModel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProgressBarMenuController.py" />
+    <Compile Include="MainMenuController.py" />
+    <Compile Include="Main.py" />
+    <Compile Include="ImageViewController.py" />
+    <Compile Include="GroupedMenuController.py" />
+    <Compile Include="model\Annotation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\ExampleMetric.py" />
+    <Compile Include="model\Group.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\GroupingModel.py" />
+    <Compile Include="model\Image.py" />
+    <Compile Include="model\IMetric.py" />
+    <Compile Include="model\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tools\EraserTool.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tools\ITool.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tools\PaintBrushTool.py" />
+    <Compile Include="tools\TextTool.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tools\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="model\" />
+    <Folder Include="tools\" />
+    <Folder Include="ui\" />
+    <Folder Include="ui\icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ui\groupedMenu.ui" />
+    <Content Include="ui\icons\check.png" />
+    <Content Include="ui\icons\clipboard.png" />
+    <Content Include="ui\icons\color-wheel.png" />
+    <Content Include="ui\icons\down-left.png" />
+    <Content Include="ui\icons\edit.png" />
+    <Content Include="ui\icons\eraser.png" />
+    <Content Include="ui\imageGroupWidget.ui" />
+    <Content Include="ui\imageMenu.ui" />
+    <Content Include="ui\mainMenu.ui" />
+    <Content Include="ui\mainWindow.ui" />
+    <Content Include="ui\progressBarMenu.ui" />
+    <Content Include="ui\singleImageWidget.ui" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <Content Include="ui\\**\*.ui" />
+    </ItemGroup>
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
